@@ -30,7 +30,7 @@ div {
 	position: center; 
 	display: inline-block;
 	text-decoration: none;
-	font-size: 3rem; 
+	font-size: 24px; 
 	border-radius: 20rem;
 	width: 15rem;
     height: 3.5rem;
@@ -40,6 +40,6 @@ div {
 #popcorn {
 	z-index: 2; 
 	position:absolute;
-	margin-left: 14rem; 
+	margin-left: 10rem; 
 	bottom: 10rem;
 	} 
