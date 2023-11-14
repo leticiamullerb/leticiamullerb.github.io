@@ -9,53 +9,94 @@ let shuffledQuestions;
 
 let tableauQuestions = [ 
     {
-    question: "In Jurassic Parc, what does John Hammond have in the top of his walking stick?",
-    answers: ["A mosquito", "An ant", "A bacteria"],
-    correctAnswer: 0,
-    image : "./Libs/jurassic.jpg",
-    largeurImage: "400px",
-    score:1,
-    type: 'singleChoice'
+        question: "In Jurassic Parc, what does John Hammond have in the top of his walking stick?",
+        answers: ["A mosquito", "An ant", "A bacteria"],
+        correctAnswer: 0,
+        image : "./Libs/jurassic.jpg",
+        largeurImage: "400px",
+        score:1,
+        type: 'singleChoice'
+        },
+    {
+        question: "Jack and Rose could have both fitted on the “door” and survived together.",
+        answers: ["True", "False"],
+        correctAnswer: 1,
+        image: "./Libs/titanic.jpg.webp",
+        largeurImage: "400px",
+        score:1,
+        type: 'singleChoice'
     },
     {
-    question: "Jack and Rose could have both fitted on the “door” and survived together.",
-    answers: ["True", "False"],
-    correctAnswer: 1,
-    image: "./Libs/titanic.jpg.webp",
-    largeurImage: "400px",
-    score:1,
-    type: 'singleChoice'
+        question: "No Star Wars was released in the 90’s :",
+        answers: ["True", "False"],
+        correctAnswer: 1,
+        image: "./Libs/starwars.svg.png",
+        largeurImage: "300px",
+        score:1,
+        type: 'singleChoice'
     },
     {
-    question: "No Star Wars was released in the 90’s :",
-    answers: ["True", "False"],
-    correctAnswer: 1,
-    image: "./Libs/starwars.svg.png",
-    largeurImage: "300px",
-    score:1,
-    type: 'singleChoice'
+        question: "What are the Fight Club’s rules ?",
+        answers: ["You do not talk about Fight Club.", "I know it because Tyler knows it.", "Only two guys to a fight."],
+        correctAnswer: [0, 2],
+        image: "./Libs/fight club.jpg",
+        largeurImage: "400px",
+        score:2,
+        type: 'multipleChoice'
     },
     {
-    question: "What are the Fight Club’s rules ?",
-    answers: ["You do not talk about Fight Club.", "I know it because Tyler knows it.", "Only two guys to a fight."],
-    correctAnswers: [0, 2],
-    image: "./Libs/fight club.jpg",
-    largeurImage: "400px",
-    score:2,
-    // voir comment diviser le score si seulement une des deux réponses justes
-
-    type: 'multipleChoice'
+        question: "Peg Boggs brought Edward Scissorhands home, and presented him her husband Bill. Who played Bill Boggs? ",
+        answers: ["Alan Parsons", "Alan Arkin", "Alan Adams", "Alan Parker"],
+        correctAnswer: 1,
+        video : "./Libs/Edward.mp4",
+        largeurImage: "320px",
+        score:1,
+        type: 'singleChoice'
     },
     {
-    question: "Peg Boggs brought Edward Scissorhands home, and presented him her husband Bill. Who played Bill Boggs? ",
-    answers: ["Alan Parsons", "Alan Arkin", "Alan Adams", "Alan Parker"],
-    correctAnswer: 1,
-    video : "./Libs/Edward.mp4",
-    largeurImage: "320px",
-    // still need to figure out how to transform the image into video
-    // controls="controls",
-    score:1,
-    type: 'singleChoice'
+        question: "Which movie won the Academy Award for Best Picture in 1994?",
+        answers: ["Forrest Gump", "Pulp Fiction", "The Shawshank Redemption", "Schindler's List"],
+        correctAnswer: 3,
+        image: "./Libs/oscars.jpg",
+        largeurImage: "200px",
+        score: 1,
+        type: 'singleChoice'
+    },
+    {
+        question: "Who played the role of Neo in the 1999 science fiction film 'The Matrix'?",
+        answers: ["Keanu Reeves", "Will Smith", "Tom Cruise", "Brad Pitt"],
+        correctAnswer: 0,
+        image: "./Libs/matrix.jpg",
+        largeurImage: "200px",
+        score: 1,
+        type: 'singleChoice'
+    },
+    {
+        question: "What animated movie featuring toys was released in 1995 and became a huge success?",
+        answers: ["Aladdin", "The Lion King", "Beauty and the Beast", "Toy Story"],
+        correctAnswer: 3,
+        image: "./Libs/toystory.png",
+        largeurImage: "300px",
+        score: 1,
+        type: 'singleChoice'
+    },
+    {
+        question: "In which 1998 film did Jim Carrey play the character Truman Burbank?",
+        answers: ["The Truman Show", "Eternal Sunshine of the Spotless Mind", "Liar Liar", "Ace Ventura: Pet Detective"],
+        correctAnswer: 0,
+        image: "./Libs/trumanshow.jpg",
+        largeurImage: "200px",
+        score: 1,
+        type: 'singleChoice'
+    },
+    {
+        question: "Quentin Tarantino directed 'Pulp Fiction' and 'Reservoir Dogs'?",
+        answers: ["Yes", "No"],
+        correctAnswer: 1,
+        image: "./Libs/tarantino.jpg",
+        largeurImage: "200px",
+        score: 1,
+        type: 'singleChoice'
     },
 ];
 
@@ -72,9 +113,11 @@ function startQuizz() {
     console.log("startQuizz");
     shuffledQuestions = tableauQuestions.sort(() => Math.random() - .5)
     currentQuestion = 0;
+    scoreGlobal = 0;
     displayQuestion(currentQuestion);
     document.getElementById("startQuizz").style.visibility= 'hidden'; 
     //document.querySelector('#startQuizz').innerText = "Next";
+
 }
 
 
@@ -85,14 +128,27 @@ function displayQuestion(currentQuestion) {
     let questionDiv = document.querySelector('#questionDiv');
     questionDiv.innerHTML = "";
     
-    let imgElement = document.createElement('img');
-    imgElement.src = tableauQuestions[currentQuestion].image; 
-    imgElement.style.width = tableauQuestions[currentQuestion].largeurImage;
-    imgElement.style.margin = 'auto';
-    imgElement.style.display = 'block';
-    imgElement.style.border = '20px solid white';
-    imgElement.style.borderRadius = '150px';
-    questionDiv.append(imgElement);
+     if (tableauQuestions[currentQuestion].video) {
+        // Create a video element
+        let videoElement = document.createElement('video');
+        videoElement.src = tableauQuestions[currentQuestion].video;
+        videoElement.style.width = tableauQuestions[currentQuestion].largeurImage;
+        videoElement.style.margin = 'auto';
+        videoElement.style.display = 'block';
+        videoElement.controls = true; // Add controls to the video player
+        questionDiv.append(videoElement);
+    } else {
+        // Create an image element
+        let imgElement = document.createElement('img');
+        imgElement.src = tableauQuestions[currentQuestion].image;
+        imgElement.style.width = tableauQuestions[currentQuestion].largeurImage;
+        imgElement.style.margin = 'auto';
+        imgElement.style.display = 'block';
+        imgElement.style.border = '20px solid white';
+        imgElement.style.borderRadius = '150px';
+        imgElement.style.maxHeight = '400px';
+        questionDiv.append(imgElement);
+    }
 
     // we display the title of the question
     let questionTitle = document.createElement('h2');
@@ -119,30 +175,44 @@ function displayQuestion(currentQuestion) {
         answerButton.innerHTML = tableauQuestions[currentQuestion].answers[i];
         answerDiv.append(answerButton);
 
-        //if(tableauQuestions[currentQuestion].type === 'singleChoice'){
-
-
             answerButton.onclick = (evt) => {
-                // we get the button that was clicked
-                let button = evt.target;
-                // its id is the index of the answer in the array
+            let button = evt.target;
+            let selectedAnswerIndex = parseInt(button.id);
 
-                // check if this was the right answer
-                if(tableauQuestions[currentQuestion].correctAnswer === parseInt(button.id)) {
+            // Check if the selected answer is correct
+            if (tableauQuestions[currentQuestion].type === 'multipleChoice') {
+                // For multiple choice questions, check if the selected answer index is in the correctAnswer array
+                if (tableauQuestions[currentQuestion].correctAnswer.includes(selectedAnswerIndex)) {
                     scoreGlobal++;
                     let scoreDiv = document.querySelector('#divScore');
                     scoreDiv.innerHTML = "Score : " + scoreGlobal;
 
                     let feedbackDiv = document.querySelector('#feedbackDiv');
-                    feedbackDiv.innerHTML = 'Correct answer'
-                    feedbackDiv.style.background = 'green'
-                
+                    feedbackDiv.innerHTML = 'Correct answer';
+                    feedbackDiv.style.background = 'green';
+                    console.log("correct answer");
                 } else {
-                    feedbackDiv.innerHTML = 'Wrong answer'
-                    feedbackDiv.style.background= 'red'
+                    feedbackDiv.innerHTML = 'Wrong answer';
+                    feedbackDiv.style.background = 'red';
+                    console.log("wrong answer");
                 }
+            } else if (tableauQuestions[currentQuestion].type === 'singleChoice') {
+                // For single choice questions, check if the selected answer index is equal to the correctAnswer
+                if (selectedAnswerIndex === tableauQuestions[currentQuestion].correctAnswer) {
+                    scoreGlobal++;
+                    let scoreDiv = document.querySelector('#divScore');
+                    scoreDiv.innerHTML = "Score : " + scoreGlobal;
 
-       // } else if(tableauQuestions[currentQuestion].type === 'multipleChoice'){
+                    let feedbackDiv = document.querySelector('#feedbackDiv');
+                    feedbackDiv.innerHTML = 'Correct answer';
+                    feedbackDiv.style.background = 'green';
+                    console.log("correct answer");
+                } else {
+                    feedbackDiv.innerHTML = 'Wrong answer';
+                    feedbackDiv.style.background = 'red';
+                    console.log("wrong answer");
+                }
+            }
                
             currentQuestion++;
 
