@@ -1,0 +1,76 @@
+
+body, html {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: url("assortiment-elements-cinema-fond-rouge-espace-copie 2-4.png") no-repeat; 
+    background-size: cover;
+    background-color: #731111; 
+}
+
+
+h1 {
+    font-family: 'Kalam';
+    position: fixed;
+    left: 3rem;
+    top: 2rem;
+    z-index: 2;
+}
+
+#startQuizz {
+    font-family: 'Kalam';
+    font-size: 2rem;
+    border-radius: 50px;
+    position: absolute;
+    left: 45%;
+    bottom: 5%;
+    box-shadow: 0 10px 10px 0;
+    }
+
+#questionDiv {
+    top: 15%; 
+    margin: auto;
+    font-family: 'Kalam';
+    font-size: 18px;
+    color: white;
+    display: inline-block;
+}
+
+#answerDiv {
+    background-color:black;
+    flex-direction: row;
+    border-radius: 50px;
+    box-shadow: 0 10px 10px 0;
+    max-width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+
+.answerButton {
+    border-radius: 50px;
+    padding: 10px;
+    color: black;
+    outline: none;
+    font-family: 'Kalam';
+    font-size: 2rem;
+    margin: 10px;
+}
+
+
+#divScore {
+    position: fixed;
+    right: 3rem;
+    top: 3rem; 
+    font-family: 'Kalam'; 
+    font-size: 2rem;
+    font-weight: bold;
+    background: white;
+    padding: 1rem;
+    min-width: 100px;
+    min-height: 45px;
+    border-radius: 3rem;
+    box-shadow: 0 10px 10px 0;
+}
