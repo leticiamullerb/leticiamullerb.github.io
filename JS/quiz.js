@@ -12,7 +12,7 @@ let tableauQuestions = [
     question: "In Jurassic Parc, what does John Hammond have in the top of his walking stick?",
     answers: ["A mosquito", "An ant", "A bacteria"],
     correctAnswer: 0,
-    image : "/Users/leti/Documents/GitHub/leticiamullerb.github.io/Libs/jurassic.jpg",
+    image : "./Libs/jurassic.jpg",
     largeurImage: "400px",
     score:1,
     type: 'singleChoice'
@@ -21,7 +21,7 @@ let tableauQuestions = [
     question: "Jack and Rose could have both fitted on the “door” and survived together.",
     answers: ["True", "False"],
     correctAnswer: 1,
-    image: "/Users/leti/Documents/GitHub/leticiamullerb.github.io/Libs/titanic.jpg.webp",
+    image: "./Libs/titanic.jpg.webp",
     largeurImage: "400px",
     score:1,
     type: 'singleChoice'
@@ -30,7 +30,10 @@ let tableauQuestions = [
     question: "No Star Wars was released in the 90’s :",
     answers: ["True", "False"],
     correctAnswer: 1,
-    image: "/Users/leti/Documents/GitHub/leticiamullerb.github.io/Libs/starwars.svg.png",
+
+    // function vidéo à ajouter 
+
+    image: "./Libs/starwars.svg.png",
     largeurImage: "300px",
     score:1,
     type: 'singleChoice'
@@ -39,7 +42,7 @@ let tableauQuestions = [
     question: "What are the Fight Club’s rules ?",
     answers: ["You do not talk about Fight Club.", "I know it because Tyler knows it.", "Only two guys to a fight."],
     correctAnswers: [0, 2],
-    image: "/Users/leti/Documents/GitHub/leticiamullerb.github.io/Libs/fight club.jpg",
+    image: "./Libs/fight club.jpg",
     largeurImage: "400px",
     score:2,
     // voir comment diviser le score si seulement une des deux réponses justes
