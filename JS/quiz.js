@@ -44,7 +44,7 @@ let tableauQuestions = [
     score:2,
     // voir comment diviser le score si seulement une des deux réponses justes
 
-    type: 'multipleChoiceQuestion'
+    type: 'multipleChoice'
     },
     {
     question: "Peg Boggs brought Edward Scissorhands home, and presented him her husband Bill. Who played Bill Boggs? ",
@@ -119,26 +119,31 @@ function displayQuestion(currentQuestion) {
         answerButton.innerHTML = tableauQuestions[currentQuestion].answers[i];
         answerDiv.append(answerButton);
 
-        answerButton.onclick = (evt) => {
-            // we get the button that was clicked
-            let button = evt.target;
-            // its id is the index of the answer in the array
+        //if(tableauQuestions[currentQuestion].type === 'singleChoice'){
 
-            // check if this was the right answer
-            if(tableauQuestions[currentQuestion].correctAnswer === parseInt(button.id)) {
-                scoreGlobal++;
-                let scoreDiv = document.querySelector('#divScore');
-                scoreDiv.innerHTML = "Score : " + scoreGlobal;
 
-                let feedbackDiv = document.querySelector('#feedbackDiv');
-                feedbackDiv.innerHTML = 'Correct answer'
-                feedbackDiv.style.background = 'green'
-            
-            } else {
-                feedbackDiv.innerHTML = 'Wrong answer'
-                feedbackDiv.style.background= 'red'
-            }
-            
+            answerButton.onclick = (evt) => {
+                // we get the button that was clicked
+                let button = evt.target;
+                // its id is the index of the answer in the array
+
+                // check if this was the right answer
+                if(tableauQuestions[currentQuestion].correctAnswer === parseInt(button.id)) {
+                    scoreGlobal++;
+                    let scoreDiv = document.querySelector('#divScore');
+                    scoreDiv.innerHTML = "Score : " + scoreGlobal;
+
+                    let feedbackDiv = document.querySelector('#feedbackDiv');
+                    feedbackDiv.innerHTML = 'Correct answer'
+                    feedbackDiv.style.background = 'green'
+                
+                } else {
+                    feedbackDiv.innerHTML = 'Wrong answer'
+                    feedbackDiv.style.background= 'red'
+                }
+
+       // } else if(tableauQuestions[currentQuestion].type === 'multipleChoice'){
+               
             currentQuestion++;
 
             // check if we have another question to display
