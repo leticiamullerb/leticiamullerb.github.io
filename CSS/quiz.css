@@ -74,3 +74,17 @@ h1 {
     border-radius: 3rem;
     box-shadow: 0 10px 10px 0;
 }
+
+#feedbackDiv {
+    position: fixed;
+    right: 3rem;
+    bottom: 3rem; 
+    font-family: 'Kalam'; 
+    font-size: 1rem;
+    background: white;
+    padding: 1rem;
+    min-width: 70px;
+    min-height: 30px;
+    border-radius: 3rem;
+    box-shadow: 0 10px 10px 0;
+}

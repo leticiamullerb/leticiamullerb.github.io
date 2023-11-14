@@ -122,12 +122,15 @@ function displayQuestion(currentQuestion) {
                 scoreGlobal++;
                 let scoreDiv = document.querySelector('#divScore');
                 scoreDiv.innerHTML = "Score : " + scoreGlobal;
-                document.body.innerHTML += 'Correct answer!';
-            } else {
-                document.body.innerHTML += 'Wrong answer!';
-            }
 
-            // comment réinitialiser le feedback d'une question à l'autre ?
+                let feedbackDiv = document.querySelector('#feedbackDiv');
+                feedbackDiv.innerHTML = 'Correct answer'
+                feedbackDiv.style.background = 'green'
+            
+            } else {
+                feedbackDiv.innerHTML = 'Wrong answer'
+                feedbackDiv.style.background= 'red'
+            }
             
             currentQuestion++;
 
