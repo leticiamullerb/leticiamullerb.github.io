@@ -30,9 +30,6 @@ let tableauQuestions = [
     question: "No Star Wars was released in the 90’s :",
     answers: ["True", "False"],
     correctAnswer: 1,
-
-    // function vidéo à ajouter 
-
     image: "./Libs/starwars.svg.png",
     largeurImage: "300px",
     score:1,
@@ -50,16 +47,16 @@ let tableauQuestions = [
     type: 'multipleChoiceQuestion'
     },
     {
-        question: "Peg Boggs brought Edward Scissorhands home, and presented him her husband Bill. Who played Bill Boggs? ",
-        answers: ["Alan Parsons", "Alan Arkin", "Alan Adams", "Alan Parker"],
-        correctAnswer: 1,
-        video : "/Users/leti/Documents/GitHub/leticiamullerb.github.io/Libs/Edward.mp4",
-        largeurImage: "320px",
-        // still need to figure out how to transform the image into video
-       // controls="controls",
-        score:1,
-        type: 'singleChoice'
-        },
+    question: "Peg Boggs brought Edward Scissorhands home, and presented him her husband Bill. Who played Bill Boggs? ",
+    answers: ["Alan Parsons", "Alan Arkin", "Alan Adams", "Alan Parker"],
+    correctAnswer: 1,
+    video : "./Libs/Edward.mp4",
+    largeurImage: "320px",
+    // still need to figure out how to transform the image into video
+    // controls="controls",
+    score:1,
+    type: 'singleChoice'
+    },
 ];
 
 //questions et images encore à ajouter 
