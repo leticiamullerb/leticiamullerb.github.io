@@ -12,8 +12,8 @@ let tableauQuestions = [
     question: "In Jurassic Parc, what does John Hammond have in the top of his walking stick?",
     answers: ["A mosquito", "An ant", "A bacteria"],
     correctAnswer: 0,
-    image : "https://upload.wikimedia.org/wikipedia/fr/6/6a/Jurassic_Park_logo.svg",
-    largeurImage: "500px",
+    image : "/Users/leti/Documents/GitHub/leticiamullerb.github.io/Libs/jurassic.jpg",
+    largeurImage: "400px",
     score:1,
     type: 'singleChoice'
     },
@@ -22,7 +22,7 @@ let tableauQuestions = [
     answers: ["True", "False"],
     correctAnswer: 1,
     image: "/Users/leti/Documents/GitHub/leticiamullerb.github.io/Libs/titanic.jpg.webp",
-    largeurImage: "500px",
+    largeurImage: "400px",
     score:1,
     type: 'singleChoice'
     },
@@ -34,7 +34,7 @@ let tableauQuestions = [
     // function vidéo à ajouter 
 
     image: "/Users/leti/Documents/GitHub/leticiamullerb.github.io/Libs/starwars.svg.png",
-    largeurImage: "500px",
+    largeurImage: "300px",
     score:1,
     type: 'singleChoice'
     },
@@ -43,7 +43,7 @@ let tableauQuestions = [
     answers: ["You do not talk about Fight Club.", "I know it because Tyler knows it.", "Only two guys to a fight."],
     correctAnswers: [0, 2],
     image: "/Users/leti/Documents/GitHub/leticiamullerb.github.io/Libs/fight club.jpg",
-    largeurImage: "500px",
+    largeurImage: "400px",
     score:2,
 
     // voir comment diviser le score si seulement une des deux réponses justes
@@ -66,7 +66,7 @@ function startQuizz() {
     shuffledQuestions = tableauQuestions.sort(() => Math.random() - .5)
     currentQuestion = 0;
     displayQuestion(currentQuestion);
-    //startBtn.style.visibility= 'invisible'; 
+    document.getElementById("startQuizz").style.visibility= 'hidden'; 
     //document.querySelector('#startQuizz').innerText = "Next";
 }
 
@@ -141,6 +141,7 @@ function displayQuestion(currentQuestion) {
                 displayQuestion(currentQuestion);
             } else {
                 gameOver();
+                document.getElementById("startQuizz").style.visibility = 'visible'
             }
         };
     } 

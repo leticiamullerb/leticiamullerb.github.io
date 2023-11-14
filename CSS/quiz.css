@@ -27,6 +27,7 @@ h1 {
     left: 45%;
     bottom: 5%;
     box-shadow: 0 10px 10px 0;
+    visibility: visible;
     }
 
 #questionDiv {
