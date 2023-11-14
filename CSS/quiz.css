@@ -19,13 +19,17 @@ h1 {
     z-index: 2;
 }
 
+h2 {
+    text-align: center;
+}
+
 #startQuizz {
     font-family: 'Kalam';
     font-size: 2rem;
     border-radius: 50px;
     position: absolute;
     left: 45%;
-    bottom: 5%;
+    bottom: 35%;
     box-shadow: 0 10px 10px 0;
     visibility: visible;
     }
@@ -78,8 +82,8 @@ h1 {
 
 #feedbackDiv {
     position: fixed;
-    right: 3rem;
-    bottom: 3rem; 
+    right: 45%;
+    bottom: 1rem; 
     font-family: 'Kalam'; 
     font-size: 1rem;
     background: white;
