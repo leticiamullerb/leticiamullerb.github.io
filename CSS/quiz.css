@@ -43,12 +43,18 @@ h2 {
     display: inline-block;
 }
 
+#startQuizz:hover {
+    background-color:pink;
+
+}
+
 #answerDiv {
     background-color:black;
+    opacity: 80%;
     flex-direction: row;
     border-radius: 50px;
     box-shadow: 0 10px 10px 0;
-    max-width: 70%;
+    max-width: 90%;
     margin: auto;
     text-align: center;
 }
@@ -64,6 +70,10 @@ h2 {
     margin: 10px;
 }
 
+.answerButton:hover {
+    background-color:pink;
+    }
+
 
 #divScore {
     position: fixed;
@@ -72,7 +82,7 @@ h2 {
     font-family: 'Kalam'; 
     font-size: 2rem;
     font-weight: bold;
-    background: white;
+    background: darkseagreen;
     padding: 1rem;
     min-width: 100px;
     min-height: 45px;
@@ -82,8 +92,8 @@ h2 {
 
 #feedbackDiv {
     position: fixed;
-    left: 45%;
-    bottom: 1rem; 
+    left: 85%;
+    bottom: 10%; 
     font-family: 'Kalam'; 
     font-size: 1rem;
     background: white;

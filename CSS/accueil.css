@@ -37,6 +37,10 @@ div {
     flex-shrink: 0;
 	}
 
+.button:hover {
+	background-color:black;
+}
+
 #popcorn {
 	z-index: 2; 
 	position:absolute;

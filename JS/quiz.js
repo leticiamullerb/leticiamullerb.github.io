@@ -5,15 +5,15 @@ window.onload = init;
 let currentQuestion = 0;
 let scoreGlobal = 0;
 let shuffledQuestions;
-//const startBtn = document.getElementById('startQuizz')
+var delayInMilliseconds = 1000;
 
 let tableauQuestions = [ 
-    {
+ {
         question: "In Jurassic Parc, what does John Hammond have in the top of his walking stick?",
         answers: ["A mosquito", "An ant", "A bacteria"],
         correctAnswer: 0,
         image : "./Libs/jurassic.jpg",
-        largeurImage: "400px",
+        largeurImage: "500px",
         score:1,
         type: 'singleChoice'
         },
@@ -22,7 +22,7 @@ let tableauQuestions = [
         answers: ["True", "False"],
         correctAnswer: 1,
         image: "./Libs/titanic.jpg.webp",
-        largeurImage: "400px",
+        largeurImage: "500px",
         score:1,
         type: 'singleChoice'
     },
@@ -31,7 +31,7 @@ let tableauQuestions = [
         answers: ["True", "False"],
         correctAnswer: 1,
         image: "./Libs/starwars.svg.png",
-        largeurImage: "300px",
+        largeurImage: "400px",
         score:1,
         type: 'singleChoice'
     },
@@ -40,25 +40,25 @@ let tableauQuestions = [
         answers: ["You do not talk about Fight Club.", "I know it because Tyler knows it.", "Only two guys to a fight."],
         correctAnswer: [0, 2],
         image: "./Libs/fight club.jpg",
-        largeurImage: "400px",
+        largeurImage: "450px",
         score:2,
         type: 'multipleChoice'
     },
     {
-        question: "Peg Boggs brought Edward Scissorhands home, and presented him her husband Bill. Who played Bill Boggs? ",
+        question: "Peg Boggs brought Edward Scissorhands home, and presented him her husband Bill. <br> Who played Bill Boggs? ",
         answers: ["Alan Parsons", "Alan Arkin", "Alan Adams", "Alan Parker"],
         correctAnswer: 1,
         video : "./Libs/Edward.mp4",
-        largeurImage: "320px",
+        largeurImage: "500px",
         score:1,
         type: 'singleChoice'
     },
     {
         question: "Which movie won the Academy Award for Best Picture in 1994?",
-        answers: ["Forrest Gump", "Pulp Fiction", "The Shawshank Redemption", "Schindler's List"],
-        correctAnswer: 3,
+        answers: ["Pulp Fiction", "Matrix", "Schindler's List"],
+        correctAnswer: 2,
         image: "./Libs/oscars.jpg",
-        largeurImage: "200px",
+        largeurImage: "300px",
         score: 1,
         type: 'singleChoice'
     },
@@ -67,12 +67,12 @@ let tableauQuestions = [
         answers: ["Keanu Reeves", "Will Smith", "Tom Cruise", "Brad Pitt"],
         correctAnswer: 0,
         image: "./Libs/matrix.jpg",
-        largeurImage: "200px",
+        largeurImage: "300px",
         score: 1,
         type: 'singleChoice'
     },
     {
-        question: "What animated movie featuring toys was released in 1995 and became a huge success?",
+        question: "What animated movie was released in 1995 and became a huge success?",
         answers: ["Aladdin", "The Lion King", "Beauty and the Beast", "Toy Story"],
         correctAnswer: 3,
         image: "./Libs/toystory.png",
@@ -82,25 +82,24 @@ let tableauQuestions = [
     },
     {
         question: "In which 1998 film did Jim Carrey play the character Truman Burbank?",
-        answers: ["The Truman Show", "Eternal Sunshine of the Spotless Mind", "Liar Liar", "Ace Ventura: Pet Detective"],
+        answers: ["The Truman Show", "Liar Liar", "Ace Ventura"],
         correctAnswer: 0,
         image: "./Libs/trumanshow.jpg",
-        largeurImage: "200px",
+        largeurImage: "250px",
         score: 1,
         type: 'singleChoice'
     },
     {
-        question: "Quentin Tarantino directed 'Pulp Fiction' and 'Reservoir Dogs'?",
+        question: "Did Quentin Tarantino direct 'Pulp Fiction' and 'Reservoir Dogs'?",
         answers: ["Yes", "No"],
-        correctAnswer: 1,
+        correctAnswer: 0,
         image: "./Libs/tarantino.jpg",
-        largeurImage: "200px",
+        largeurImage: "280px",
         score: 1,
         type: 'singleChoice'
     },
 ];
 
-//questions et images encore à ajouter 
 
 
 function init() {
@@ -114,6 +113,8 @@ function startQuizz() {
     shuffledQuestions = tableauQuestions.sort(() => Math.random() - .5)
     currentQuestion = 0;
     scoreGlobal = 0;
+    let scoreDiv = document.querySelector('#divScore');
+    scoreDiv.innerHTML = "Score : " + scoreGlobal;
     displayQuestion(currentQuestion);
     document.getElementById("startQuizz").style.visibility= 'hidden'; 
     //document.querySelector('#startQuizz').innerText = "Next";
@@ -135,7 +136,8 @@ function displayQuestion(currentQuestion) {
         videoElement.style.width = tableauQuestions[currentQuestion].largeurImage;
         videoElement.style.margin = 'auto';
         videoElement.style.display = 'block';
-        videoElement.controls = true; // Add controls to the video player
+        videoElement.style.border = '10px solid white';
+        videoElement.controls = true; 
         questionDiv.append(videoElement);
     } else {
         // Create an image element
@@ -144,9 +146,9 @@ function displayQuestion(currentQuestion) {
         imgElement.style.width = tableauQuestions[currentQuestion].largeurImage;
         imgElement.style.margin = 'auto';
         imgElement.style.display = 'block';
-        imgElement.style.border = '20px solid white';
+        imgElement.style.border = '10px solid white';
         imgElement.style.borderRadius = '150px';
-        imgElement.style.maxHeight = '400px';
+        imgElement.style.maxHeight = '450px';
         questionDiv.append(imgElement);
     }
 
@@ -187,13 +189,10 @@ function displayQuestion(currentQuestion) {
                     let scoreDiv = document.querySelector('#divScore');
                     scoreDiv.innerHTML = "Score : " + scoreGlobal;
 
-                    let feedbackDiv = document.querySelector('#feedbackDiv');
-                    feedbackDiv.innerHTML = 'Correct answer';
-                    feedbackDiv.style.background = 'green';
+                    answerButton.style.background = 'green';
                     console.log("correct answer");
                 } else {
-                    feedbackDiv.innerHTML = 'Wrong answer';
-                    feedbackDiv.style.background = 'red';
+                    answerButton.style.background = 'red';
                     console.log("wrong answer");
                 }
             } else if (tableauQuestions[currentQuestion].type === 'singleChoice') {
@@ -203,28 +202,27 @@ function displayQuestion(currentQuestion) {
                     let scoreDiv = document.querySelector('#divScore');
                     scoreDiv.innerHTML = "Score : " + scoreGlobal;
 
-                    let feedbackDiv = document.querySelector('#feedbackDiv');
-                    feedbackDiv.innerHTML = 'Correct answer';
-                    feedbackDiv.style.background = 'green';
+                    answerButton.style.background = 'green';
                     console.log("correct answer");
                 } else {
-                    feedbackDiv.innerHTML = 'Wrong answer';
-                    feedbackDiv.style.background = 'red';
+                    answerButton.style.background = 'red';
                     console.log("wrong answer");
                 }
             }
                
             currentQuestion++;
 
-            // check if we have another question to display
-            //if(currentQuestion < tableauQuestions.length) {
-
+        //next question or end is executed after 1 second to let time to see colored button
+            setTimeout(function() {
+              
             if (shuffledQuestions.length > currentQuestion ) {
                 displayQuestion(currentQuestion);
             } else {
                 gameOver();
                 document.getElementById("startQuizz").style.visibility = 'visible'
             }
+
+            }, delayInMilliseconds);
         };
     } 
 }
