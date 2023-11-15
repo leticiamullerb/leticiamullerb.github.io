@@ -30,8 +30,8 @@ let tableauQuestions = [
         question: "No Star Wars was released in the 90’s :",
         answers: ["True", "False"],
         correctAnswer: 1,
-        image: "./Libs/starwars.svg.png",
-        largeurImage: "400px",
+        image: "./Libs/starwars1.gif",
+        largeurImage: "450px",
         score:1,
         type: 'singleChoice'
     },
@@ -39,7 +39,7 @@ let tableauQuestions = [
         question: "What are the Fight Club’s rules ?",
         answers: ["You do not talk about Fight Club.", "I know it because Tyler knows it.", "Only two guys to a fight."],
         correctAnswer: [0, 2],
-        image: "./Libs/fight club.jpg",
+        image: "./Libs/fightclub1.gif",
         largeurImage: "450px",
         score:2,
         type: 'multipleChoice'
@@ -66,14 +66,14 @@ let tableauQuestions = [
         question: "Who played the role of Neo in the 1999 science fiction film 'The Matrix'?",
         answers: ["Keanu Reeves", "Will Smith", "Tom Cruise", "Brad Pitt"],
         correctAnswer: 0,
-        image: "./Libs/matrix.jpg",
-        largeurImage: "300px",
+        image: "./Libs/matrix1.gif",
+        largeurImage: "450px",
         score: 1,
         type: 'singleChoice'
     },
     {
         question: "What animated movie was released in 1995 and became a huge success?",
-        answers: ["Aladdin", "The Lion King", "Beauty and the Beast", "Toy Story"],
+        answers: ["Aladdin", "The Lion King", "Cinderella", "Toy Story"],
         correctAnswer: 3,
         image: "./Libs/toystory.png",
         largeurImage: "300px",
@@ -84,7 +84,7 @@ let tableauQuestions = [
         question: "In which 1998 film did Jim Carrey play the character Truman Burbank?",
         answers: ["The Truman Show", "Liar Liar", "Ace Ventura"],
         correctAnswer: 0,
-        image: "./Libs/trumanshow.jpg",
+        image: "./Libs/jimcarrey.gif",
         largeurImage: "250px",
         score: 1,
         type: 'singleChoice'
@@ -97,6 +97,24 @@ let tableauQuestions = [
         largeurImage: "280px",
         score: 1,
         type: 'singleChoice'
+    },
+    {
+        question: "Did the McCallister's order 10 pizzas for their tea?",
+        answers: ["Yes", "No"],
+        correctAnswer: 0,
+        image: "./Libs/homealone3.gif",
+        largeurImage: "450px",
+        score: 1,
+        type: 'singleChoice'
+    },
+     {
+        question: "Which of those Travolta's movies was NOT released in the 90’s ? ",
+        answers: ["Grease", "Staying Alive ", "Pulp fiction"],
+        correctAnswer: [0, 1],
+        image: "./Libs/travolta.gif",
+        largeurImage: "450px",
+        score:2,
+        type: 'multipleChoice'
     },
 ];
 
