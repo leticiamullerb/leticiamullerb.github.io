@@ -1,5 +1,5 @@
 body, html { 
-	background: url("/Users/leti/Documents/GitHub/leticiamullerb.github.io/Libs/firstscreen.png")no-repeat fixed center; 
+	background: url("./Libs/firstscreen.png")no-repeat fixed center; 
 	margin: 0rem;
 	padding: 0rem;
 	background-position: center;
