@@ -84,7 +84,7 @@ let tableauQuestions = [
         question: "In which 1998 film did Jim Carrey play the character Truman Burbank?",
         answers: ["The Truman Show", "Liar Liar", "Ace Ventura"],
         correctAnswer: 0,
-        image: "./Libs/jimcarrey.gif",
+        image: "./Libs/jimcarrey1.gif",
         largeurImage: "250px",
         score: 1,
         type: 'singleChoice'
