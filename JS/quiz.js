@@ -13,7 +13,7 @@ let tableauQuestions = [
         answers: ["A mosquito", "An ant", "A bacteria"],
         correctAnswer: 0,
         image : "./Libs/jurassic.jpg",
-        largeurImage: "500px",
+        largeurImage: "45vw",
         score:1,
         type: 'singleChoice'
         },
@@ -22,7 +22,7 @@ let tableauQuestions = [
         answers: ["True", "False"],
         correctAnswer: 1,
         image: "./Libs/titanic.jpg.webp",
-        largeurImage: "500px",
+        largeurImage: "45vw",
         score:1,
         type: 'singleChoice'
     },
@@ -31,7 +31,7 @@ let tableauQuestions = [
         answers: ["True", "False"],
         correctAnswer: 1,
         image: "./Libs/starwars1.gif",
-        largeurImage: "450px",
+        largeurImage: "45vw",
         score:1,
         type: 'singleChoice'
     },
@@ -40,7 +40,7 @@ let tableauQuestions = [
         answers: ["You do not talk about Fight Club.", "I know it because Tyler knows it.", "Only two guys to a fight."],
         correctAnswer: [0, 2],
         image: "./Libs/fightclub1.gif",
-        largeurImage: "450px",
+        largeurImage: "35vw",
         score:2,
         type: 'multipleChoice'
     },
@@ -49,7 +49,7 @@ let tableauQuestions = [
         answers: ["Alan Parsons", "Alan Arkin", "Alan Adams", "Alan Parker"],
         correctAnswer: 1,
         video : "./Libs/Edward.mp4",
-        largeurImage: "500px",
+        largeurImage: "45vw",
         score:1,
         type: 'singleChoice'
     },
@@ -58,7 +58,7 @@ let tableauQuestions = [
         answers: ["Pulp Fiction", "Matrix", "Schindler's List"],
         correctAnswer: 2,
         image: "./Libs/oscars.jpg",
-        largeurImage: "300px",
+        largeurImage: "25vw",
         score: 1,
         type: 'singleChoice'
     },
@@ -67,7 +67,7 @@ let tableauQuestions = [
         answers: ["Keanu Reeves", "Will Smith", "Tom Cruise", "Brad Pitt"],
         correctAnswer: 0,
         image: "./Libs/matrix1.gif",
-        largeurImage: "450px",
+        largeurImage: "40vw",
         score: 1,
         type: 'singleChoice'
     },
@@ -76,7 +76,7 @@ let tableauQuestions = [
         answers: ["Aladdin", "The Lion King", "Cinderella", "Toy Story"],
         correctAnswer: 3,
         image: "./Libs/toystory.png",
-        largeurImage: "300px",
+        largeurImage: "25vw",
         score: 1,
         type: 'singleChoice'
     },
@@ -85,7 +85,7 @@ let tableauQuestions = [
         answers: ["The Truman Show", "Liar Liar", "Ace Ventura"],
         correctAnswer: 0,
         image: "./Libs/jimcarrey1.gif",
-        largeurImage: "250px",
+        largeurImage: "25vw",
         score: 1,
         type: 'singleChoice'
     },
@@ -94,7 +94,7 @@ let tableauQuestions = [
         answers: ["Yes", "No"],
         correctAnswer: 0,
         image: "./Libs/tarantino.jpg",
-        largeurImage: "280px",
+        largeurImage: "25vw",
         score: 1,
         type: 'singleChoice'
     },
@@ -103,7 +103,7 @@ let tableauQuestions = [
         answers: ["Yes", "No"],
         correctAnswer: 0,
         image: "./Libs/homealone3.gif",
-        largeurImage: "450px",
+        largeurImage: "45vw",
         score: 1,
         type: 'singleChoice'
     },
@@ -112,7 +112,7 @@ let tableauQuestions = [
         answers: ["Grease", "Staying Alive ", "Pulp fiction"],
         correctAnswer: [0, 1],
         image: "./Libs/travolta.gif",
-        largeurImage: "450px",
+        largeurImage: "40vw",
         score:2,
         type: 'multipleChoice'
     },
@@ -156,6 +156,7 @@ function displayQuestion(currentQuestion) {
         videoElement.style.display = 'block';
         videoElement.style.border = '10px solid white';
         videoElement.controls = true; 
+        videoElement.style.minWidth = '320px';
         questionDiv.append(videoElement);
     } else {
         // Create an image element
@@ -166,7 +167,8 @@ function displayQuestion(currentQuestion) {
         imgElement.style.display = 'block';
         imgElement.style.border = '10px solid white';
         imgElement.style.borderRadius = '150px';
-        imgElement.style.maxHeight = '450px';
+        imgElement.style.minWidth = '280px';
+        imgElement.style.minHeight = '180px';
         questionDiv.append(imgElement);
     }
 

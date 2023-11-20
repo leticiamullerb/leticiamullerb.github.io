@@ -2,32 +2,58 @@
 body, html {
     padding: 0;
     margin: 0;
-    display: flex;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: url("./used background.png") no-repeat; 
     background-size: cover;
     background-color: #731111; 
+    display: flex;
 }
 
+@media screen and (min-width: 700px) {
+    #divScore {
+        font-size: 24px;
+    }
+    #questionDiv {
+        font-size: 22px;
+    }
+    .answerButton {
+        font-size: 28px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 699px) {
+    #divScore {
+        font-size: 20px;
+    }
+    #questionDiv {
+        font-size: 18px;
+    }
+    .answerButton {
+        font-size: 20px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+   
+}
 
 h1 {
     font-family: 'Kalam';
     position: fixed;
-    left: 3rem;
-    top: 2rem;
-    z-index: 2;
+    left: 5%;
+    top: 3%;
 }
 
-h2 {
-    text-align: center;
-}
 
 #startQuizz {
     font-family: 'Kalam';
     font-size: 2rem;
     border-radius: 50px;
-    position: absolute;
+    position: fixed;
     left: 45%;
     bottom: 35%;
     box-shadow: 0 10px 10px 0;
@@ -38,9 +64,9 @@ h2 {
     top: 15%; 
     margin: auto;
     font-family: 'Kalam';
-    font-size: 18px;
     color: white;
     display: inline-block;
+    text-align: center;
 }
 
 #startQuizz:hover {
@@ -51,7 +77,9 @@ h2 {
 #answerDiv {
     background-color:black;
     opacity: 80%;
-    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: center;
+    flex: 1;
     border-radius: 50px;
     box-shadow: 0 10px 10px 0;
     max-width: 90%;
@@ -62,11 +90,10 @@ h2 {
 
 .answerButton {
     border-radius: 50px;
-    padding: 10px;
+    padding: 2px;
     color: black;
     outline: none;
     font-family: 'Kalam';
-    font-size: 2rem;
     margin: 10px;
 }
 
@@ -77,28 +104,13 @@ h2 {
 
 #divScore {
     position: fixed;
-    right: 3rem;
-    top: 3rem; 
+    right: 5%;
+    top: 3%; 
     font-family: 'Kalam'; 
-    font-size: 2rem;
     font-weight: bold;
     background: darkseagreen;
     padding: 1rem;
-    min-width: 100px;
-    min-height: 45px;
-    border-radius: 3rem;
-    box-shadow: 0 10px 10px 0;
-}
-
-#feedbackDiv {
-    position: fixed;
-    left: 85%;
-    bottom: 10%; 
-    font-family: 'Kalam'; 
-    font-size: 1rem;
-    background: white;
-    padding: 1rem;
-    min-width: 70px;
+    min-width: 80px;
     min-height: 30px;
     border-radius: 3rem;
     box-shadow: 0 10px 10px 0;
